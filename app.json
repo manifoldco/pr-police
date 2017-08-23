@@ -4,10 +4,17 @@
   "repository": "https://github.com/Talkdesk/pr-police",
   "keywords": ["pull", "request", "police", "github", "node", "slackbot", "slack"],
   "logo": "https://raw.githubusercontent.com/Talkdesk/pr-police/master/images/badge-white-small.png",
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
   "env": {
     "CHECK_INTERVAL": {
       "description": "Time interval to check for new pull requests, in milliseconds",
-      "value": "3600000"
+      "value": "3600000",
+      "required": false
     },
     "DAYS_TO_RUN": {
       "description": "Which days of the week to run on (locale-specific), comma-separated",
@@ -27,27 +34,32 @@
     },
     "GH_REPOS": {
       "description": "Repositories to watch in user/repo format, comma-separated",
-      "value": "john/somerepo,doe/anotherrepo"
+      "value": "johndoe/somerepo,johndoe/anotherrepo"
     },
     "GH_LABELS": {
       "description": "Repository labels to filter pull requests, comma-separated",
-      "value": ""
+      "value": "",
+      "required": false
     },
     "SLACK_CHANNELS": {
-      "description": "Slack channels to post the announcements, comma-separated",
-      "value": ""
+      "description": "Slack channels to post the announcements, comma-separated. Required if SLACK_GROUPS is empty.",
+      "value": "",
+      "required": false
     },
     "SLACK_GROUPS": {
-      "description": "Slack private groups to post the announcements, comma-separated",
-      "value": ""
+      "description": "Slack private groups to post the announcements, comma-separated. Required if SLACK_CHANNEL is empty.",
+      "value": "",
+      "required": false
     },
     "SLACK_BOT_NAME": {
       "description": "The name of the bot on your slack organization",
-      "value": ""
+      "value": "",
+      "required": false
     },
     "SLACK_BOT_ICON": {
       "description": "URL of the bot icon to show when posting messages",
-      "value": ""
+      "value": "",
+      "required": false
     }
   }
 }
