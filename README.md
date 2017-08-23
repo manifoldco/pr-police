@@ -41,9 +41,6 @@ This will start the server locally until `Ctrl-C` is pressed.
 
 Pr. Police has the following environment variables available:
 
-##### `CHECK_INTERVAL`
-Time interval for announcing the pull-requests on slack. In milliseconds. Default: `3600000`.
-
 ##### `DEBUG`
 Debug flag used to enable more verbose logging. Default: `false`
 
@@ -75,6 +72,8 @@ The name of your Pr. Police bot on slack.
 
 ##### `SLACK_BOT_ICON`
 URL of the icon for the slack bot when sending messages.
+##### `TIMES_TO_RUN`
+What times of day to run (24-hour format, leading zeroes are not necessary). Multiple times are comma-separated. Default: `0900`.
 
 ## Credits
 
