@@ -64,19 +64,27 @@ Example: `rogeriopvl/gulp-ejs,rogeriopvl/pullhub,talkdesk/pr-police`
 
 ##### `GH_EXCLUDE_LABELS`
 
-The list of labels that will cause a pull-request to be excluded. So imagine, your team uses the label `in-progress` for pull-requests not yet requiring review, you'll have to fill in: `in-progress`. Supercedes `GH_LABELS`. Multiple labels are comma separated.
+PR labels, comma-separated, to be hidden from Slack. Will override `GH_LABELS`. Use in case you don’t want to announce blocked or in-progress work via `GH_BLOCKED_LABEL` or `GH_WIP_LABEL`.
 
-Example: `do-not-merge,in-progress,needs-work`
+Example: `test,in-progress`
 
 ##### `GH_LABELS`
 
-The list of labels to filter pull-requests. So imagine, your team uses the label `needs review` for pull-requests waiting for review, you'll have to fill in: `needs review`. Multiple labels are comma separated.
+PR labels, comma-separated, to announce in Slack. If omitted, all labels (besides `GH_EXCLUDE_LABELS`) will be announced.
 
-NOTE: Omitting both `GH_EXCLUDE_LABELS` and `GH_LABELS` will result in _all_ open pull-requests being reported for the specified `GH_REPOS`.
+Example: `ready,needs-review`
+
+##### 'GH_BLOCKED_LABEL'
+
+Label to mark PRs that are blocked and need assistance. `GH_EXCLUDE_LABELS` will override this.
+
+Example: `blocked`
 
 ##### 'GH_WIP_LABEL'
 
-The WIP label to signify in-progress work
+Label to mark PRs that are works in progress (WIP) and not ready for review yet. `GH_EXCLUDE_LABELS` will override this.
+
+Example: `wip`
 
 ##### `SLACK_CHANNELS`
 
