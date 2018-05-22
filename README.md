@@ -18,7 +18,6 @@ The easiest way to get an instance of Pr. Police up and running is to deploy it 
 
 You'll still need to fill in all the environment variables. For more info on this, head down to the Configuration section.
 
-
 ### Via NPM
 
     npm install pr-police
@@ -42,48 +41,65 @@ This will start the server locally until `Ctrl-C` is pressed.
 Pr. Police has the following environment variables available:
 
 ##### `DEBUG`
+
 Debug flag used to enable more verbose logging. Default: `false`
 
 ##### `DAYS_TO_RUN`
+
 Which days of the week to run on. Default: `Monday,Tuesday,Wednesday,Thursday,Friday`
 
 ##### `GH_TOKEN`
+
 The github account token to access the repos
 
 ##### `SLACK_TOKEN`
+
 The slack token for the bot to access your slack team
 
 ##### `GH_REPOS`
+
 The list of repositories to watch. The format is `user/repo` and comma separated.
 
 Example: `rogeriopvl/gulp-ejs,rogeriopvl/pullhub,talkdesk/pr-police`
 
 ##### `GH_EXCLUDE_LABELS`
+
 The list of labels that will cause a pull-request to be excluded. So imagine, your team uses the label `in-progress` for pull-requests not yet requiring review, you'll have to fill in: `in-progress`. Supercedes `GH_LABELS`. Multiple labels are comma separated.
 
 Example: `do-not-merge,in-progress,needs-work`
 
 ##### `GH_LABELS`
+
 The list of labels to filter pull-requests. So imagine, your team uses the label `needs review` for pull-requests waiting for review, you'll have to fill in: `needs review`. Multiple labels are comma separated.
 
 NOTE: Omitting both `GH_EXCLUDE_LABELS` and `GH_LABELS` will result in _all_ open pull-requests being reported for the specified `GH_REPOS`.
 
+##### 'GH_WIP_LABEL'
+
+The WIP label to signify in-progress work
+
 ##### `SLACK_CHANNELS`
+
 The list of channels on your team where Pr. Police will post the announcements. Multiple channels are comma separated.
 
 ##### `SLACK_GROUPS`
+
 The list of private groups on your team where Pr. Police will post the announcements. Multiple channels are comma separated.
 
 ##### `SLACK_BOT_NAME`
+
 The name of your Pr. Police bot on slack.
 
 ##### `SLACK_BOT_ICON`
+
 URL of the icon for the slack bot when sending messages.
 
 ##### `TIMES_TO_RUN`
+
 What times of day to run (24-hour format, leading zeroes are not necessary). Multiple times are comma-separated. Default: `0900`.
 
 ##### `TZ`
+
 The timezone the server should use. Heroku default is UTC. Uses tz database timezone format. Example: `America/Los_Angeles`.
 
 ## Heroku configuration
